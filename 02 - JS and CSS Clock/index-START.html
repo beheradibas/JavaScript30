@@ -62,11 +62,44 @@
       background: black;
       position: absolute;
       top: 50%;
+      transform-origin: 100%;
+      transform : rotate(90deg);
+      transition: all 0.05s;
+      transition-timing-function: cubic-bezier(.68,-0.49,.27,1.55);
+    }
+
+    .hour-hand{
+      background-color: green;
+      transform : scale(0.5);
+    }
+
+    .min-hand{
+      background-color: greenyellow;
+    }
+
+    .second-hand{
+      background-color: yellow;
     }
 
   </style>
 
-  <script>
+<script>
+    function init(){
+      const date = new Date();
+      const hour = document.querySelector('.hour-hand');
+      const min = document.querySelector('.min-hand');
+      const second = document.querySelector('.second-hand');
+      const h=date.getHours();
+      const m=date.getMinutes();
+      const s=date.getSeconds();
+      //console.log(h,m,s);
+      hour.style.transform = `rotate(${h*30+m*0.5+90}deg) scaleX(0.5)`;
+      min.style.transform = `rotate(${m*6+s*0.1+90}deg) `;
+      second.style.transform = `rotate(${s*6+90}deg) scaleY(0.7)`;
+    }
+    //init()
+    setInterval(init,1000);
+
 
 
   </script>

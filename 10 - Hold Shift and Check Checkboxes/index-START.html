@@ -96,6 +96,39 @@
   </div>
 
 <script>
+  const chk = document.querySelectorAll('input');
+  let lastChecked ;
+
+  chk.forEach(box => box.addEventListener('click',(e)=>{
+    if(!lastChecked) {
+      //console.log(e.target)
+      
+      lastChecked = e.target;
+
+    }
+    else {
+      if(e.shiftKey){
+        let between = false;
+        //let start = console.log(chk.findIndex((key)=>key==lastChecked));
+        //let end = chk.findIndex((key)=>key==this);
+        //if(start>end) swap(start,end);
+
+        //console.log(start,end)
+
+        chk.forEach((key) => {
+          if(key===e.target||key===lastChecked) 
+            between = !between;
+
+          if(between) key.checked=lastChecked.checked ;
+          
+          })
+        // console.log(chk)
+      }
+      lastChecked = e.target;
+    }
+
+
+  }))
 </script>
 </body>
 </html>
