@@ -18,29 +18,63 @@
     }
 
     // Regular
-
+    console.log("Hello")
     // Interpolated
 
+    console.log("This a %s string",'jjdjd')
     // Styled
 
+    console.log("%c This a styled string",'font-size:20px;color:green;')
     // warning!
-
+    console.warn('Don\'t panic')
     // Error :|
-
+    console.error('Don\'t cross your limits')
     // Info
-
+    console.info('This an info')
     // Testing
+    console.assert(1===2,'This is wrong')
+    console.assert(1===1,'This is wrong')
 
+    const p = document.querySelector('p');
     // clearing
-
+    console.clear()
     // Viewing DOM Elements
-
+    //console.dir(console)
+    console.dir(p)
     // Grouping together
-
+    dogs.forEach(dog=>{
+      console.groupCollapsed(`${dog.name}`)
+      console.log(`Dog name : ${dog.name}`)
+      console.log(`Dog age : ${dog.age}`)
+      console.groupEnd(`${dog.name}`)
+    })
     // counting
+    console.count('A')
+    console.count('A')
+    console.count('Ab')
+    console.count('A')
+    console.count('Ab')
+    console.count('A')
+    console.count('Ab')
+    console.count('Ab')
 
+    console.clear();
+    console.count('A')
+    console.count('A')
+    console.count('Ab')
+    console.count('A')
+    console.count('Ab')
+    console.count('A')
+    console.count('Ab')
+    console.count('Ab')
     // timing
-
+    console.time('fetching data')
+    fetch('https://api.github.com/users/beheradibas')
+      .then(data => data.json())
+      .then(data =>{
+        console.timeEnd('fetching data')
+        console.table(data);
+      })
   </script>
 </body>
 </html>
