@@ -27,6 +27,25 @@
 
   <script>
     // 👀👀👀👀👀👀👀👀👀👀👀👀👀👀👀
+    const links = document.querySelectorAll('a');
+    let el = document.createElement('span');
+    el.classList.add('highlight');
+    document.body.appendChild(el);
+    function highlightLink(){
+      const val = this.getBoundingClientRect();
+      const cords = {width:val.width,height:val.height,top:val.top
+        ,bottom:val.bottom,left:val.left,right:val.right};
+      console.table(cords);
+      cords.top  += window.scrollY;
+      cords.left += window.scrollX;
+      el.style.width = `${cords.width}px`;
+      el.style.height = `${cords.height}px`;
+      el.style.transform = `translate(${cords.left}px,${cords.top}px)`; 
+      console.table(cords)
+      // console.log(el);
+      
+    }
+    links.forEach(a => a.addEventListener("mouseenter",highlightLink))
   </script>
 </body>
 </html>

@@ -50,6 +50,14 @@ nav {
   z-index: 1;
 }
 
+.fixed-nav nav{
+  position: fixed;
+  box-shadow: 2px #1ccc1c;
+  }
+
+.fixed-nav .site-wrap {
+  transform: scale(1);
+}
 nav ul {
   margin: 0;
   padding:0;

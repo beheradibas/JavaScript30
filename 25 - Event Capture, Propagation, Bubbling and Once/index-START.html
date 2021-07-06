@@ -12,7 +12,7 @@
       </div>
     </div>
   </div>
-
+<button>You can click this only once</button>
 <style>
   html {
     box-sizing: border-box;
@@ -40,9 +40,19 @@
   }
 </style>
 
-<button></button>
 <script>
-
+  const one =  document.querySelector('.one');
+  const two =  document.querySelector('.two');
+  const three =  document.querySelector('.three');
+  const button = document.querySelector('button');
+  function click(i){
+    console.log("You clicked on element",i);
+    //e.stopPropagation();
+  }
+one.addEventListener('click',(e)=>click(1),{capture:true});
+two.addEventListener('click',()=>click(2));
+three.addEventListener('click',()=>click(3));
+button.addEventListener('click',()=>console.log("This prints single time "),{once:true})
 </script>
 </body>
 </html>

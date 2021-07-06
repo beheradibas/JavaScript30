@@ -182,6 +182,20 @@
     </li>
   </ul>
 <script>
+  console.log([...document.querySelectorAll("[data-time]")]
+  .reduce((total,el)=>{
+    //console.log(total);
+    const t = el.dataset.time;
+    let t2=t.split(':');
+    let t3=total.split(':');
+    let h=0,m=parseInt(t2[0]),s=parseInt(t2[1]);
+    h+=parseInt(t3[0]),m+=parseInt(t3[1]),s+=parseInt(t3[2]);
+    m+=Math.floor(s/60);s%=60;
+    h+=Math.floor(m/60);m%=60;
+    total=''+h+":"+m+':'+s;
+    return total;
+  },'0:0:0'))
+  // let k= parseInt("23");
 </script>
 </body>
 </html>
